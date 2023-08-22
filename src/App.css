@@ -8,31 +8,3 @@
   grid-template-columns: 2fr 10fr;
 
 }
-
-.header {
-  grid-area: h;
-  background-color: green;
-}
-
-.header img {
-  width: 60px;
-}
-
-.nav {
-  grid-area: n;
-  background-color: red;
-}
-
-.content {
-  grid-area: c;
-  background-color: yellow;
-}
-
-.content .fon {
-  width: 100%;
-}
-
-.content .ava {
-  width: 100px;
-  height: 100px;
-}
