@@ -8,7 +8,7 @@ function MyPosts() {
           <div>
             <textarea></textarea>
             <button>asd</button>
-            <button>123</button>
+            <button>1234</button>
           </div>
           <Post/>
           <Post/>
