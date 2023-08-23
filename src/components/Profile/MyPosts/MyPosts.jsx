@@ -14,6 +14,7 @@ function MyPosts() {
           <Post/>
           <Post/>
           <Post/>
+          <Post/>
         </div>
 
     );
