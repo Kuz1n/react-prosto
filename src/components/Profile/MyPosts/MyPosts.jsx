@@ -8,7 +8,6 @@ function MyPosts() {
           <div>
             <textarea></textarea>
             <button>Send</button>
-            <button>1234</button>
           </div>
           <Post message='Hi, how are you?' likeCount='15'/>
           <Post message='My first post' likeCount='10'/>

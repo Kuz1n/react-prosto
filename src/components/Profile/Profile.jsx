@@ -3,7 +3,7 @@ import s from './Profile.module.css';
 
 function Profile() {
     return (
-      <div className={s.content}>
+      <div>
         <div>
           <img className={s.fon} src='https://vsegda-pomnim.com/uploads/posts/2022-04/1649137083_18-vsegda-pomnim-com-p-pkhuket-priroda-foto-21.jpg'/>
         </div>
