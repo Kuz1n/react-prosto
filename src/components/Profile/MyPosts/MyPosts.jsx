@@ -1,7 +1,13 @@
 import s from './MyPosts.module.css';
 import Post from './Post/Post';
 
-function MyPosts() {
+
+
+
+function MyPosts(props) {
+
+  let postsElements = props.props.posts.map( (p) => <Post message={p.message} likeCount={p.likeCount}/> )
+
     return (
 
         <div className={s.posts}>
@@ -9,8 +15,7 @@ function MyPosts() {
             <textarea></textarea>
             <button>Send</button>
           </div>
-          <Post message='Hi, how are you?' likeCount='15'/>
-          <Post message='My first post' likeCount='10'/>
+          {postsElements}
         </div>
 
     );
