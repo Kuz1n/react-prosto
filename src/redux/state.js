@@ -1,8 +1,8 @@
-let rerenderEntireTree = () => {
-  console.log('State changed')
-}
+const ADD_POST = 'ADD-POST';
+const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 
-let state = {
+let store = {
+  _state: {
     messagesPage: {
         dialogs: [
             {name: 'Саша', id:'1'},
@@ -31,27 +31,43 @@ let state = {
           ],
         newPostText: 'hardcode'
     }
+  },
+  _callSubscriber() {
+    console.log('State changed')
+  },
+  getState() {
+    return this._state;
+  },
+  subscribe(observer) {
+    this._callSubscriber = observer; // observer
+  },
+
+  dispatch(action) {
+    if (action.type === 'ADD-POST') {
+      let newPost = {
+        id: 6,
+        message: this._state.profilePage.newPostText,
+        likeCount: 0
+      }
+    
+      this._state.profilePage.posts.push(newPost);
+      this._state.profilePage.newPostText = '';
+      this._callSubscriber(this._state);
+
+    } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+      this._state.profilePage.newPostText = action.newText;
+      this._callSubscriber(this._state);
+      
+    }
   }
-
-export let addPost = () => {
-  let newPost = {
-    id: 6,
-    message: state.profilePage.newPostText,
-    likeCount: 0
-  }
-
-  state.profilePage.posts.push(newPost);
-  state.profilePage.newPostText = '';
-  rerenderEntireTree(state);
 }
 
-export let updatePostText = (newText) => {
-  state.profilePage.newPostText = newText;
-  rerenderEntireTree(state);
-}
+export const addPostActionCreator = () => ({ type: ADD_POST })
 
-export const subscribe = (observer) => {
-  rerenderEntireTree = observer; // observer
-}
+export const uprateNewPostTextActionCreator = (text) => ({
+    type: UPDATE_NEW_POST_TEXT,
+    newText: text
+  })
 
-export default state;
+
+export default store;
